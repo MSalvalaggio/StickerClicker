@@ -33,18 +33,17 @@ public class ClickerManager : MonoBehaviour {
         player = FindObjectOfType<Player>();
         enemy = FindObjectOfType<Enemy>();
     }
-                                                                                                                 
-	void Update () {                                                                                             
-                                                                                                                 
-        myTouches = Input.touches;
 
-        if (TimeManager.Instance.IsGameNotPaused)
+    void Update()
+    {
+        myTouches = Input.touches;
         {
             for (int i = 0; i < Input.touchCount; i++)
             {
                 if (myTouches[i].phase == TouchPhase.Began)
                 {
                     ClickActions();
+                    player.AttackAnimation001();
                 }
             }
 
@@ -61,7 +60,7 @@ public class ClickerManager : MonoBehaviour {
         }
     }
 
-    public void ClickActions()
+        public void ClickActions()
     {
         enemy.TakeDamage(ClickValue);
         player.GainGold(ClickValue);

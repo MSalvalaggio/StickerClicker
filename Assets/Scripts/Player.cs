@@ -10,9 +10,11 @@ public class Player : MonoBehaviour {
     public int Gold;
     public int GoldMultiplier;
 
-	// Use this for initialization
-	void Start () {
-		
+    private Animator Player_Anim;
+
+    // Use this for initialization
+    void Start () {
+        Player_Anim = GetComponentInChildren<Animator>();
 	}
 	
 	// Update is called once per frame
@@ -28,5 +30,10 @@ public class Player : MonoBehaviour {
     public void SpendGold(int goldToSub)
     {
         Gold -= goldToSub;
+    }
+
+    public void AttackAnimation001()
+    {
+        Player_Anim.Play("Player_Attack_001");
     }
 }
